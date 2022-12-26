@@ -5,16 +5,16 @@ const router = express.Router();
 router.post("/app", async (req, res) => {
     const form = new Form({
         fullname: req.body.fullname,
-        identity: req.body.identity,
-        gender: req.body.gender,
-        phone: req.body.phone,
+        identity: req.body.code,
+        gender: req.body.interest,
+        phone: req.body.phonenumber,
         location: req.body.location,
         date: req.body.date,
-        stime: req.body.stime,
-        etime: req.body.etime,
-        cook: req.body.cook,
-        bath: req.body.bath,
-        clean: req.body.clean
+        stime: req.body.Timestart,
+        etime: req.body.Timefinish,
+        cook: req.body.likes1,
+        bath: req.body.likes2,
+        clean: req.body.likes3
     });
     try{
         const newForm = await form.save();
