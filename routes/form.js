@@ -38,7 +38,7 @@ router.post("/app", async (req, res) => {
         res.redirect('/preorder');
     } catch (err) {
         // 錯誤訊息發生回傳400 代表使用者傳入錯誤的資訊
-        res.status(400).json({ message: err.message, name: fullname })
+        res.status(400).json({ name: fullname })
     }
     await form.save()
 });
