@@ -92,23 +92,6 @@
                 let c=document.getElementById("show").addEventListener("click",showmap,false);
                 let submit=document.getElementById("submit").addEventListener("click",send,false);
             }
-            function back(){
-                const person = {
-                        fullname: $("#fname").val(),
-                        interst: $("#cb02").val(),
-                        phonenumber: $("#phone").val(),
-                        location: $("#address").val(),
-                        date: $("#date").val(),
-                        Timestart: $("#sList").val(),
-                        Timefinish: $("#fList").val(),
-                        likes1: $("#cb01").val(),
-                        likes2: $("#cb02").val(),
-                        likes3: $("#cb03").val()
-                    }
-                    $.post("/app", { person: person, code: $("#identitycode").val()}, function(res) {
-                        window.alert(res.message);
-                    });
-            }
             function showmap(){
                 let address2=document.getElementById("address").value;
                 let b="https://www.google.com/maps/place/";
@@ -141,7 +124,6 @@
                     m+="時間:"+time+"-"+st+"~"+ft+"<br>";
                     m+="服務:"+serve1 + " " + serve2 + " " + serve3;
                     msg.innerHTML=m;
-                    back();
                 }
             }
             window.addEventListener("load",start,false);
@@ -266,7 +248,7 @@
                     </p>
                     
                     <p class="special">
-                        <input type = "button" value = "提交" id="submit">
+                        <input type = "submit" value = "提交" id="submit">
                         <input type = "reset" value = "Clear">
                     </p>
                 </form>

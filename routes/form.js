@@ -2,17 +2,33 @@ const express = require("express");
 const Form = require("../models/form");
 const router = express.Router();
 router.use(express.json());
+router.get("/app", async (req, res) => {
+    res.json("Hello World")
+});
 router.post("/app", async (req, res) => {
     const form = new Form({
-        person: req.body.person,
-        code: req.body.code
+        fullname: req.body.fullname,
+        code: req.body.code,
+        interest: req.body.interest,
+        phonenumber: req.body.phonenumber,
+        location: req.body.location,
+        date: req.body.date,
+        Timestart: req.body.Timestart,
+        Timefinish: req.body.Timefinish,
+        likes1: req.body.likes1,
+        likes2: req.body.likes2,
+        likes3: req.body.likes3
     });
-    try{
-        const newForm = await form.save();
+    try {
+        // 使用.save()將資料存進資料庫
+        await form.save();
+        // 回傳status:201代表新增成功 並回傳新增的資料
         res.status(201).json("success");
-    } catch (err){
-        res.status(400).json({ message: err.message });
+    } catch (err) {
+        // 錯誤訊息發生回傳400 代表使用者傳入錯誤的資訊
+        res.status(400).json({ message: err.message })
     }
+    await form.save()
 });
 
 async function getId(req, res, next) {
