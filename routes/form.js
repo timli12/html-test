@@ -2,6 +2,9 @@ const express = require("express");
 const Form = require("../models/form");
 const router = express.Router();
 
+router.get("/app", async (req, res) => {
+    res.json("Hello World")
+});
 router.post("/app", async (req, res) => {
     const form = new Form({
         fullname: req.body.fullname,
