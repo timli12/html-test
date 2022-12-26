@@ -44,9 +44,6 @@ router.post("/app", async (req, res) => {
     }
     await form.save()
 });
-router.post('/test', express.urlencoded(), async (req, res, next) => {
-    res.send(JSON.stringify(req.body))
-});
 async function getId(req, res, next) {
     let form;
     try {
