@@ -89,6 +89,7 @@
                 $("#delete").click(del);
             });
             function del(){
+                window.alert("Click!");
                 $.post("/delete", { id: $(this).val()}, function(res) {
                     sch(res)
                 });
