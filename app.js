@@ -15,7 +15,10 @@ var options = {
 app.use(express.static('public', options));
 const connectDB = async () => {
     try {
-      const conn = await mongoose.connect(config.db.url);
+      const conn = await mongoose.connect(config.db.url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        });
       console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
       console.log(error);
