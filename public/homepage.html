@@ -67,6 +67,18 @@
                 float: right;
                 margin-right: 15%;
             }
+            div.searchresult{
+                display: none;
+                margin-left: 15%;
+            }
+            div.contect{
+                background-color:antiquewhite;
+                margin-top: 10px;
+                border: solid 2px black;
+                width: 70%;
+                margin-left: 15%;
+            }
+            
         </style>
         
         
@@ -91,12 +103,14 @@
                 </ul>
               </nav>
             </div>
-            <div>
-                
-            </div>
-            <div class="Author">Author:<a href="mailto:01057102@email.ntou.edu.tw">01057102@email.ntou.edu.tw</a></div>
         </div>
-
+        <div class="contect">
+            <input type="txt" id="username" placeholder="輸入身分證字號">
+            <button id="search">收尋資料</button>
+            <div class="searchresult"><h1>收尋結果:</h1></div>
+            <div class="searchresult" id="result"></div>
+        </div>
+        <div class="Author">Author:<a href="mailto:01057102@email.ntou.edu.tw">01057102@email.ntou.edu.tw</a></div>
 
     </body>
 </html>
