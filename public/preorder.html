@@ -92,6 +92,23 @@
                 let c=document.getElementById("show").addEventListener("click",showmap,false);
                 let submit=document.getElementById("submit").addEventListener("click",send,false);
             }
+            function back(){
+                const person = {
+                        fullname: $("#fname").val(),
+                        interst: $("#cb02").val(),
+                        phonenumber: $("#phone").val(),
+                        location: $("#address").val(),
+                        date: $("#date").val(),
+                        Timestart: $("#sList").val(),
+                        Timefinish: $("#fList").val(),
+                        likes1: $("#cb01").val(),
+                        likes2: $("#cb02").val(),
+                        likes3: $("#cb03").val()
+                    }
+                    $.post("/app", { person: person, code: $("#identitycode").val()}, function(res) {
+                        console.log("success")
+                    });
+            }
             function showmap(){
                 let address2=document.getElementById("address").value;
                 let b="https://www.google.com/maps/place/";
@@ -103,7 +120,7 @@
                 console.log(name);
                 let address=document.getElementById("address").value;
                 let identitycode=document.getElementById("identitycode").value;
-                let gender=document.getElementById("cb02").value;
+                let gender=document.getElementById("cb").value;
                 let phone=document.getElementById("phone").value;
                 console.log(phone);
                 let time=document.getElementById("date").value;
@@ -124,21 +141,7 @@
                     m+="時間:"+time+"-"+st+"~"+ft+"<br>";
                     m+="服務:"+serve;
                     msg.innerHTML=m;
-                    const person = {
-                        fullname: name,
-                        interst: gender,
-                        phonenumber: phone,
-                        location: address,
-                        date: time,
-                        Timestart: st,
-                        Timefinish: ft,
-                        likes1: serve1,
-                        likes2: serve2,
-                        likes3: serve3
-                    }
-                    $.post("/app", { person: person, code: identitycode}, function(res) {
-                        console.log("success")
-                    });
+                    back();
                 }
             }
             window.addEventListener("load",start,false);
@@ -182,13 +185,13 @@
                     <p>
                         性別:
                         <label> 
-                            <input type="radio" id="cb02" value="Boy" name="interest"/>男性/male
+                            <input type="radio" id="cb0 value="Boy" name="interest"/>男性/male
                         </label>
                         <label>
-                            <input type="radio" id="cb02" value="Girl" name="interest"/>女性/Female
+                            <input type="radio" id="cb" value="Girl" name="interest"/>女性/Female
                         </label>
                         <label>
-                            <input type="radio" id="cb02" value="Unknow" name="interest"/>其他
+                            <input type="radio" id="cb" value="Unknow" name="interest"/>其他
                         </label>
                         <br>
                         (如需要協助入浴且在意服務人員性別，請必選)
