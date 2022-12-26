@@ -80,8 +80,25 @@
             }
             
         </style>
-        
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#search").click(sch);
+            });
+            function sch(){
+                $.post("/search", { code: $("#username").val()}, function(res) {
+                    let content = "<tr><td>";
+                    for(let data of res){
+                        var arr = []
+                        if(data.likes1) arr.push(data.likes1);
+                        if(data.likes2) arr.push(data.likes2);
+                        if(data.likes3) arr.push(data.likes3);
+                        content += (data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td></tr>");
+                    }
+                    $("#result").html(content)
+                });
+            }
+        </script>
     </head>
     <body>
         <img src="title.jpg" id="titleimg">
@@ -108,7 +125,18 @@
             <input type="txt" id="username" placeholder="輸入身分證字號">
             <button id="search">搜尋資料</button>
             <div class="searchresult"><h1>搜尋結果:</h1></div>
-            <div class="searchresult" id="result"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>日期</th>
+                        <th>開始時間</th>
+                        <th>地址</th>
+                        <th>服務項目</th>
+                    </tr>
+                </thead>
+                <tbody id = "result"></tbody>
+            </table>
         </div>
         <div class="Author">Author:<a href="mailto:01057102@email.ntou.edu.tw">01057102@email.ntou.edu.tw</a></div>
 

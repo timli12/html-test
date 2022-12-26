@@ -49,7 +49,7 @@ router.post('/test', express.urlencoded(), async (req, res, next) => {
 async function getId(req, res, next) {
     let form;
     try {
-        form = await Form.findById(req.body.identity);
+        form = await Form.findById(req.body.code);
         if (form == undefined) {
             return res.status(404).json({ message: "Can't find todo" })
         }
