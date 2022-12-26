@@ -26,6 +26,7 @@ const connectDB = async () => {
     }
   }
   app.use(express.static('public', options));
+  app.use(express.json());
   //Routes go here
   app.use("/",formRouter);
   //Connect to the database before listening
