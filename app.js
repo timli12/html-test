@@ -13,6 +13,7 @@ var options = {
   redirect: false
 }
 app.use(express.static('public', options));
+mongoose.set('strictQuery', true);
 const connectDB = async () => {
     try {
       const conn = await mongoose.connect(config.db.url, {
