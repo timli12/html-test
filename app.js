@@ -44,7 +44,7 @@ const connectDB = async () => {
   app.use("/", express.static('public', options));
   app.use("/preorder", express.static('public', options2));
   app.use("/data", express.static('public', options3));
-  app.use(express.urlencoded());
+  app.use(express.urlencoded({ extended: true }));
   //Routes go here
   app.use("/",formRouter);
   //Connect to the database before listening
