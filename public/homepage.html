@@ -83,17 +83,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
-                $("#search").click(sch);
+                $("#search").click(function(){
+                    sch($("username").val());
+                });
+                $("#delete").click(del);
             });
-            function sch(){
-                $.post("/search", { code: $("#username").val()}, function(res) {
+            function del(){
+                $.post("/delete", { id: $(this).val()}, function(res) {
+                    sch(res)
+                });
+            }
+            function sch(co){
+                $.post("/search", { code: co}, function(res) {
                     let content = "";
                     for(let data of res){
                         var arr = []
                         if(data.likes1) arr.push(data.likes1);
                         if(data.likes2) arr.push(data.likes2);
                         if(data.likes3) arr.push(data.likes3);
-                        content += ("<tr><td>" + data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td></tr>");
+                        content += ("<tr><td>" + data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td><td><button id = 'delete' value = '" + data.id + "'>取消</button></td></tr>");
                     }
                     $("#result").html(content)
                 });
@@ -133,6 +141,7 @@
                         <th>開始時間</th>
                         <th>地址</th>
                         <th>服務項目</th>
+                        <th>取消</th>
                     </tr>
                 </thead>
                 <tbody id = "result"></tbody>

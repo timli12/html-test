@@ -64,13 +64,14 @@ router.post("/search", getId, async (req, res) => {
 });
 router.post("/delete", getId, async (req, res) => {
     try {
+        var c = res.form.code;
         // 將取出的待辦事項刪除
         await res.form.remove();
         // 回傳訊息
-        res.json({ message: "Delete todo succeed" })
+        res.send(c)
     } catch (err) {
         // 資料庫操作錯誤將回傳500及錯誤訊息
-        res.status(500).json({ message: "remove todo faild" })
+        res.status(500).json({ message: "remove form faild" })
     }
 });
 
