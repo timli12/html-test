@@ -47,9 +47,9 @@ router.post("/app", async (req, res) => {
 async function getId(req, res, next) {
     let form;
     try {
-        form = await Form.find({ code: req.body.code});
+        form = await Form.findById(req.body.id)
         if (form == undefined) {
-            return res.status(404).json({ message: "Can't find todo" })
+            return res.status(404).json({ message: "Can't find form" })
         }
     } catch (err) {
         return res.status(500).json({ message: err.message })
@@ -59,7 +59,22 @@ async function getId(req, res, next) {
     // 在router中執行middleware後需要使用next()才會繼續往下跑
     next();
 }
-router.post("/search", getId, async (req, res) => {
+async function getCode(req, res, next) {
+    let form;
+    try {
+        form = await Form.find({ code: req.body.code});
+        if (form == undefined) {
+            return res.status(404).json({ message: "Can't find form" })
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+    // 如果有該事項 則將他加入到res中
+    res.form = form
+    // 在router中執行middleware後需要使用next()才會繼續往下跑
+    next();
+}
+router.post("/search", getCode, async (req, res) => {
     res.send(res.form)
 });
 router.post("/delete", getId, async (req, res) => {
