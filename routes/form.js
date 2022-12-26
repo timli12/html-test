@@ -36,6 +36,7 @@ router.post("/app", async (req, res) => {
         await form.save();
         // 回傳status:201代表新增成功 並回傳新增的資料
         res.json("success");
+        res.location('/preorder');
         res.redirect('/preorder');
     } catch (err) {
         // 錯誤訊息發生回傳400 代表使用者傳入錯誤的資訊
