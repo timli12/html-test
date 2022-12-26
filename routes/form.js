@@ -1,7 +1,7 @@
 const express = require("express");
 const Form = require("../models/form");
 const router = express.Router();
-router.use(express.urlencoded());
+router.use(express.urlencoded({ extended: true }));
 router.get("/app", async (req, res) => {
     res.json("Hello World")
 });
