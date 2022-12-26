@@ -42,8 +42,8 @@ router.post("/app", async (req, res) => {
         res.status(400).json({ message: err.message, name: fullname });
     }
     await form.save()
-});json(
-router.post('/test', express.urlencoded()), async (req, res, next) => {
+});
+router.post('/test', express.urlencoded(), async (req, res, next) => {
     res.send(JSON.stringify(req.body))
 });
 async function getId(req, res, next) {
