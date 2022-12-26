@@ -17,7 +17,7 @@ router.post("/app", async (req, res) => {
     var likes1 = req.body.likes1
     var likes2 = req.body.likes2
     var likes3 = req.body.likes3
-    window.alert(fullname);
+
     const form = new Form({
         fullname: fullname,
         code: code,
@@ -43,7 +43,9 @@ router.post("/app", async (req, res) => {
     }
     await form.save()
 });
-
+router.post('/test', express.json(), (req, res, next) => {
+    res.send(JSON.stringify(req.body))
+});
 async function getId(req, res, next) {
     let form;
     try {
