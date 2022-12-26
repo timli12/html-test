@@ -6,18 +6,29 @@ router.get("/app", async (req, res) => {
     res.json("Hello World")
 });
 router.post("/app", async (req, res) => {
+    var fullname = req.body.fullname;
+    var code = req.body.code
+    var interest = req.body.interest
+    var phonenumber = req.body.phonenumber
+    var location = req.body.location
+    var date = req.body.date
+    var Timestart = req.body.Timestart
+    var Timefinish = req.body.Timefinish
+    var likes1 = req.body.likes1
+    var likes2 = req.body.likes2
+    var likes3 = req.body.likes3
     const form = new Form({
-        fullname: req.body.fullname,
-        code: req.body.code,
-        interest: req.body.interest,
-        phonenumber: req.body.phonenumber,
-        location: req.body.location,
-        date: req.body.date,
-        Timestart: req.body.Timestart,
-        Timefinish: req.body.Timefinish,
-        likes1: req.body.likes1,
-        likes2: req.body.likes2,
-        likes3: req.body.likes3
+        fullname: fullname,
+        code: code,
+        interest: interest,
+        phonenumber: phonenumber,
+        location: location,
+        date: date,
+        Timestart: Timestart,
+        Timefinish: Timefinish,
+        likes1: likes1,
+        likes2: likes2,
+        likes3: likes3
     });
     try {
         // 使用.save()將資料存進資料庫
