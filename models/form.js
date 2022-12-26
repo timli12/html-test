@@ -2,47 +2,47 @@ const mongoose = require('mongoose');
 const p = new mongoose.Schema({
     fullname: {
         type: String,
-        required: true
+        //required: true
     },
     code: {
         type: String,
-        required: true
+        //required: true
     },
     interest: {
         type: String,
-        required: true
+        //required: true
     },
     phonenumber: {
         type: Number,
-        required: true
+        //required: true
     },
     location: {
         type: String,
-        required: true
+        //required: true
     },
     date: {
         type: String,
-        required: true
+        //required: true
     },
     Timestart: {
         type: Number,
-        required: true
+        //required: true
     },
     Timefinish: {
         type: Number,
-        required: true
+        //required: true
     },
     likes1: {
         type: Boolean,
-        required: true
+        //required: true
     },
     likes2: {
         type: Boolean,
-        required: true
+        //required: true
     },
     likes3: {
         type: Boolean,
-        required: true
+        //required: true
     }
 });
 
