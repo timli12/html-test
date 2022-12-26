@@ -3,66 +3,100 @@
     <head>
         <title>home page</title>
         <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style type = "text/css">
-            body{background-color:whitesmoke;}
-            h1{
-                text-align: center;
-                color: burlywood;
-            }
-            /*上面的列表*/
-            nav{
-                width:  20%;
-                box-sizing: border-box;
-                float: left;
-                color: white;
-                border: 2px solid olivedrab;
-                background-color:olivedrab;
-                
-                font-family: Perpetua;
-                text-align: center;
-                font-weight: bold;
-            }
-            nav ul{
-                display: none;
-                list-style: none;
-                margin: 0;
-                padding: 0; 
-            }
-            nav:hover ul{ 
+            body{background-color:#F2F2F2;}
+
+
+            img#titleimg{
+                margin-left: 40%;
                 width: 20%;
-                display: block;
-                position: absolute;}
-            nav ul li{
-                border-top: 2px solid skyblue;
-                background-color: olivedrab;
-                color: white; 
             }
-            nav ul li:hover { background-color: PowderBlue; }
-            /*超連結*/
-            a {
-                text-decoration: none;
-                color: white;
-            }
-            a:hover{color:#ff66cc;}
+
+            
             a.sign{
-                color:black;
+                position: absolute;
+                top:10px;
+                right:20px;
+            }
+
+
+            .container{
+                margin-top: 0;
+                margin-left: 15%;
+                width: 70%;
+                height: 70px;
+                background: #AAC0AA;
+            }
+
+            img.lstp{
+                height: 70px;
+            }
+            nav{
+                width: 90%;
                 float:right;
             }
-            a.sign:hover{
-                text-decoration: underline;
+            ul{
+                margin: 0;
+                list-style-type: none;
+            }
+            nav ul{
+                text-align: center;
+                padding: 25px 0 25px 0;
+                float: left;
+                width: 25%;
+                height:90px;
+            }
+            nav li{
+                width: 25%;
+                display:none;
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+            }
+            /* 滑鼠浮動特效 */
+            nav ul:hover li{ 
+                display: block;
+                position: absolute;
+                background-color: #7A918D; 
+            }
+            nav a{
+                text-decoration: none;
+            }
+            div.Author{
+                float: right;
+                margin-right: 15%;
             }
         </style>
+        
+        
     </head>
     <body>
+        <img src="title.jpg" id="titleimg">
         <a href="login.html" class="sign">登入||sign in</a>
-        <h1>長照資訊網</h1>
-        <nav><a href="preorder.html">預約</a>
-        </nav>
-        <nav>相關資訊
-            <ul>
-                <li>相關福利</li>
-                <li>相關法規</li>
-            </ul>
-        </nav>
+        <div id="header">
+            <!--容器分為左圖右導覽連結 -->
+            <div class="container"> <img src="選單圖示.png" width="70px" alt="dd" class="listp"/>
+              <!--導覽列 -->
+              <nav>
+                <ul><a href="homepage.html">Home</a></ul>
+                <ul><a href="preorder.html">預約</a></ul>
+                <ul><a href="data.html">相關法規</a>
+                    <li>
+                        <p><a href="data.html#inf1">住宿式資訊</a></p>
+                        <p><a href="data.html#inf2">失智照護</a></p>
+                        <p><a href="data.html#inf3">出院銜接長照服務</a></p>
+                        <p><a href="data.html#inf4">政策資訊</a></p>
+                    </li>
+                </ul>
+              </nav>
+            </div>
+            <div>
+                
+            </div>
+            <div class="Author">Author:<a href="mailto:01057102@email.ntou.edu.tw">01057102@email.ntou.edu.tw</a></div>
+        </div>
+
+
     </body>
 </html>
