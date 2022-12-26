@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>data</title>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type = "text/css">
+            body{background-color:#F2F2F2;}
+
+
+            img#titleimg{
+                margin-left: 40%;
+                width: 20%;
+            }
+
+            
+            a.sign{
+                position: absolute;
+                top:10px;
+                right:20px;
+            }
+
+
+            .container{
+                margin-top: 0;
+                margin-left: 15%;
+                width: 70%;
+                height: 70px;
+                background: #AAC0AA;
+            }
+
+            img.lstp{
+                height: 70px;
+            }
+            nav{
+                width: 90%;
+                float:right;
+            }
+            ul{
+                margin: 0;
+                list-style-type: none;
+            }
+            nav ul{
+                text-align: center;
+                padding: 25px 0 25px 0;
+                float: left;
+                width: 25%;
+                height:90px;
+            }
+            nav li{
+                width: 25%;
+                display:none;
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+            }
+            /* 滑鼠浮動特效 */
+            nav ul:hover li{ 
+                display: block;
+                position: absolute;
+                background-color: #7A918D; 
+            }
+            nav a{
+                text-decoration: none;
+            }
+            div.Author{
+                float: right;
+                margin-right: 15%;;                          
+            }
+            
+            div.inf{
+                margin-left: 18%;
+                margin-top: 10px;
+                white-space: nowrap;
+            }
+            .inf1data{
+                margin-left: 20%;
+                margin-top: 10px;
+                width:65%;
+                white-space: nowrap;
+            }
+            img.inf1data{
+                margin-left: 20%;
+                margin-top: 10px;
+                width:656px;
+            }
+            div#context{
+                background-color:antiquewhite;
+                margin-top: 10px;
+                border: solid 2px black;
+                width: 70%;
+                margin-left: 15%;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="title.jpg" id="titleimg">
+        <a href="login.html" class="sign">登入||sign in</a>
+        <div id="header">
+            <!--容器分為左圖右導覽連結 -->
+            <div class="container"> <img src="選單圖示.png" width="70px" alt="dd" class="listp"/>
+              <!--導覽列 -->
+              <nav>
+                <ul><a href="homepage.html">Home</a></ul>
+                <ul><a href="preorder.html">預約</a></ul>
+                <ul><a href="data.html">相關法規</a>
+                    <li>
+                        <p><a href="data.html#inf1">住宿式資訊</a></p>
+                        <p><a href="data.html#inf2">失智照護</a></p>
+                        <p><a href="data.html#inf3">出院銜接長照服務</a></p>
+                        <p><a href="data.html#inf4">政策資訊</a></p>
+                    </li>
+                </ul>
+              </nav>
+            </div>
+        </div>
+        <div id="context">
+            <div id="inf1" class="inf" >一.住宿式長照相關資訊</div>
+            <p class="inf1data">1.各縣市長照機構資料:<a href="https://www.mohw.gov.tw/dl-80165-b7755ea9-d17b-425c-8ba9-966b2c1d96db.html">各縣市服務窗口</a></p>
+            <p class="inf1data">2.補助方案申請須知:<a href="https://www.mohw.gov.tw/dl-80166-1e3ff7df-d493-4068-8438-552461c7f1f3.html">補助方案申請作業須知</a></p>
+        
+            <div id="inf2" class="inf">二.失智照護</div>
+            <p class="inf1data">1.失智簡易辨識問卷:<a href="https://www.mohw.gov.tw/dl-77748-e4d64369-c4a6-460b-960f-8f1264e6bc9e.html">問卷下載</a></p>
+            <p class="inf1data">2.各縣市共照中心:<a href="https://www.mohw.gov.tw/dl-77912-502c2b15-0db6-4386-a327-3d3e84b639c9.html">各縣市共照中心清單</a></p>
+            <img src="長照表格.png" class="inf1data" width="656px"><br>
+        
+            <div id="inf3" class="inf">三.出院銜接長照服務</div>
+            <p class="inf1data">1.出院銜接長照申請須知:<a href="https://www.mohw.gov.tw/dl-77960-2211ca69-dce9-4710-bbf1-f31a635ed36d.html">申請須知</a></p>
+            <p class="inf1data">2.參與醫院名單:<a href="https://www.mohw.gov.tw/dl-77958-41496d6e-79d1-4508-9e3d-480a0b709152.html">醫院名單</a></p><br>
+
+            <div id="inf4" class="inf">四.政策資料</div>
+            <p class="inf1data">1.長照2.0:<a href="https://www.mohw.gov.tw/dl-78115-5511ccc0-cae0-4d16-b729-6d0e16228fb5.html">核定表本</a></p>
+            <img src="2.0.webp" class="inf1data" width="656px">
+            <p class="inf1data">2.長期照顧服務法:<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0070040">全國法規資料庫：長期照顧服務</a></p><br>
+        </div>
+        <div class="Author">Author:<a href="mailto:01057102@email.ntou.edu.tw">01057102@email.ntou.edu.tw</a></div>
+    </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>home page</title>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type = "text/css">
+            body{background-color:#F2F2F2;}
+    
+    
+            img#titleimg{
+                margin-left: 40%;
+                width: 20%;
+            }
+    
+            
+            a.sign{
+                position: absolute;
+                top:10px;
+                right:20px;
+            }
+    
+    
+            .container{
+                margin-top: 0;
+                margin-left: 15%;
+                width: 70%;
+                height: 70px;
+                background: #AAC0AA;
+            }
+    
+            img.lstp{
+                height: 70px;
+            }
+            nav{
+                width: 90%;
+                float:right;
+            }
+            ul{
+                margin: 0;
+                list-style-type: none;
+            }
+            nav ul{
+                text-align: center;
+                padding: 25px 0 25px 0;
+                float: left;
+                width: 25%;
+                height:90px;
+            }
+            nav li{
+                width: 25%;
+                display:none;
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+            }
+            /* 滑鼠浮動特效 */
+            nav ul:hover li{ 
+                display: block;
+                position: absolute;
+                background-color: #7A918D; 
+            }
+            nav a{
+                text-decoration: none;
+            }
+            div.Author{
+                float:right;
+                text-align: right;
+            }
+
+            form{
+                margin-top: 30px;
+                border: solid 2px blueviolet;
+                margin-left: 32%;
+                width: 36%;
+            }
+            p{
+                margin-left: 10%;
+                width: 80%;
+            }
+            h1{
+                height: 100px;
+                margin-left: 30%;
+                margin-right: 30%;
+                text-align: center;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script>
+            function start(){
+                let c=document.getElementById("show").addEventListener("click",showmap,false);
+                let submit=document.getElementById("submit").addEventListener("click",send,false);
+            }
+            function showmap(){
+                let address2=document.getElementById("address").value;
+                let b="https://www.google.com/maps/place/";
+                b += address2;
+                window.open(b);
+            }
+            function send(){
+                let name=document.getElementById("fname").value;
+                console.log(name);
+                let address=document.getElementById("address").value;
+                let identitycode=document.getElementById("identitycode").value;
+                let gender=document.getElementById("cb02").value;
+                let phone=document.getElementById("phone").value;
+                console.log(phone);
+                let time=document.getElementById("date").value;
+                let st=document.getElementById("sList").value;
+                let ft=document.getElementById("fList").value;
+                let serve=document.getElementById("cb01").value;
+                if(name==""||identitycode==""||address==""||serve=="") window.alert("必填資料未填。");
+                else if(st<8||st>16||ft>20) window.alert("抱歉該時段無法為您服務。");
+                else if(ft-st<0) window.alert("時間輸入有誤。");
+                else{
+                    let msg=document.getElementById("msg");
+                    let m="";
+                    m+="名字:"+name+"<br>";
+                    m+="電話:"+phone+"<br>";
+                    m+="地址:"+address+"<br>";
+                    m+="時間:"+time+"-"+st+"~"+ft+"<br>";
+                    m+="服務:"+serve;
+                    msg.innerHTML=m;
+                }
+            }
+            window.addEventListener("load",start,false);
+        </script>
+        
+    </head>
+    <body>
+        <img src="title.jpg" id="titleimg">
+        <a href="login.html" class="sign">登入||sign in</a>
+        <div id="header">
+            <!--容器分為左圖右導覽連結 -->
+            <div class="container"> <img src="選單圖示.png" width="70px" alt="dd" class="listp"/>
+              <!--導覽列 -->
+              <nav>
+                <ul><a href="homepage.html">Home</a></ul>
+                <ul><a href="preorder.html">預約</a></ul>
+                <ul><a href="#">相關法規</a>
+                    <li>
+                        <p>相關福利</p>
+                        <p>相關法規</p>
+                    </li>
+                </ul>
+              </nav>
+            </div>
+        </div>
+            <h1>預約表單</h1>
+            <div>
+                <form method = "post" autocomplete = "on" action=>
+                    <p>
+                        <label for = "name">*全名: 
+                            <input type="text" id="fname" placeholder = "全名" name="fullname" value="" required="required"/>
+                        </label>
+                    </p>
+                    <p>
+                        <label>*身分證:
+                            <input type="text" id="identitycode" placeholder="Axxxxxxxxx" name="code" required="required"/>
+                        </label>
+                    </p>
+                    <p>
+                        性別:
+                        <label> 
+                            <input type="radio" id="cb02" value="Boy" name="interest"/>男性/male
+                        </label>
+                        <label>
+                            <input type="radio" id="cb02" value="Girl" name="interest"/>女性/Female
+                        </label>
+                        <label>
+                            <input type="radio" id="cb02" value="Unknow" name="interest"/>其他
+                        </label>
+                        <br>
+                        (如需要協助入浴且在意服務人員性別，請必選)
+                    </p>
+                    <p>
+                        電話:
+                        <label> 
+                            <input type="text" id="phone"  name="phonenumber" placeholder="09-xxxx-xxxx"/> 
+                        </label>
+                    </p>
+                
+                    <p>
+                        <label>*要預約的時間:<br>
+                            日期:<input type="date" id="date" placeholder = "yyy-mm-dd" name="date" />(yyyy-mm-dd)
+                            <br>
+                            開始時間:
+                            <input type="number" id="sList" placeholder="選擇或輸入開始時間" list="Timeschoice" name="Timestart" required="required"/>
+                            點
+                            <datalist id = "Timeschoice">
+                                <option value="8"></option>
+                                <option value="9"></option>
+                                <option value="10"></option>
+                                <option value="11"></option>
+                                <option value="12"></option>
+                                <option value="13"></option>
+                                <option value="14"></option>
+                                <option value="15"></option>
+                                <option value="16"></option>
+                                <option value="17"></option>
+                                <option value="18"></option>
+                            </datalist>
+                            <br>
+                            結束時間:
+                            <input type="number" id="fList" placeholder="選擇或輸入結束時間" list="Timefchoice" name="Timefinish" required="required"/>
+                            點
+                            <datalist id = "Timefchoice">
+                                <option value="9"></option>
+                                <option value="10"></option>
+                                <option value="11"></option>
+                                <option value="12"></option>
+                                <option value="13"></option>
+                                <option value="14"></option>
+                                <option value="15"></option>
+                                <option value="16"></option>
+                                <option value="17"></option>
+                                <option value="18"></option>
+                                <option value="19"></option>
+                                <option value="20"></option>
+                            </datalist>
+                        </label>
+                    </p>
+                
+                    <p>
+                        <label>
+                            *地址:
+                            <input type="text" id="address" placeholder="輸入地址" required="required" />
+                            <input type="button" id="show" value="在google map上顯示"/></button>
+                        </label>
+                    </p>
+                
+                    <p>
+                        <strong>*選擇需要的服務</strong><br/>
+                        <label>
+                            <input type="checkbox" id="cb01" value="煮飯" name="likes"/> 煮飯
+                        </label>
+                        <label for="cb02" vaule="2">
+                            <input type="checkbox" id="cb01" value="協助入浴" name="likes"/> 協助入浴
+                        </label>
+                        <label for="cb03" vaule="3" >
+                            <input type="checkbox" id="cb01" value="打掃環境" name="likes"/> 打掃環境
+                        </label>
+                    </p>
+                    
+                    <p class="special">
+                        <input type = "button" value = "提交" id="submit">
+                        <input type = "reset" value = "Clear">
+                    </p>
+                </form>
+                <div id="msg"></div>
+            </div>
+            <div class="Author">Author:<a href="mailto:01057102@email.ntou.edu.tw">01057102@email.ntou.edu.tw</a></div>
+        </div>
+        
+    
+    </body>
+</html>

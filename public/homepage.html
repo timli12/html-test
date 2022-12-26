@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>home page</title>
+        <meta charset = "utf-8">
+        <style type = "text/css">
+            body{background-color:whitesmoke;}
+            h1{
+                text-align: center;
+                color: burlywood;
+            }
+            /*上面的列表*/
+            nav{
+                width:  20%;
+                box-sizing: border-box;
+                float: left;
+                color: white;
+                border: 2px solid olivedrab;
+                background-color:olivedrab;
+                
+                font-family: Perpetua;
+                text-align: center;
+                font-weight: bold;
+            }
+            nav ul{
+                display: none;
+                list-style: none;
+                margin: 0;
+                padding: 0; 
+            }
+            nav:hover ul{ 
+                width: 20%;
+                display: block;
+                position: absolute;}
+            nav ul li{
+                border-top: 2px solid skyblue;
+                background-color: olivedrab;
+                color: white; 
+            }
+            nav ul li:hover { background-color: PowderBlue; }
+            /*超連結*/
+            a {
+                text-decoration: none;
+                color: white;
+            }
+            a:hover{color:#ff66cc;}
+            a.sign{
+                color:black;
+                float:right;
+            }
+            a.sign:hover{
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="login.html" class="sign">登入||sign in</a>
+        <h1>長照資訊網</h1>
+        <nav><a href="preorder.html">預約</a>
+        </nav>
+        <nav>相關資訊
+            <ul>
+                <li>相關福利</li>
+                <li>相關法規</li>
+            </ul>
+        </nav>
+    </body>
+</html>
