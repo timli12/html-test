@@ -47,7 +47,7 @@ router.post("/app", async (req, res) => {
 async function getId(req, res, next) {
     let form;
     try {
-        form = await Form.findById(req.body.code);
+        form = await Form.find({ code: req.body.code});
         if (form == undefined) {
             return res.status(404).json({ message: "Can't find todo" })
         }
@@ -59,11 +59,9 @@ async function getId(req, res, next) {
     // 在router中執行middleware後需要使用next()才會繼續往下跑
     next();
 }
-
 router.post("/search", getId, async (req, res) => {
     res.send(res.form)
 });
-
 router.post("/delete", getId, async (req, res) => {
     try {
         // 將取出的待辦事項刪除
