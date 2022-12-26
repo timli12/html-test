@@ -106,7 +106,7 @@
                         likes3: $("#cb03").val()
                     }
                     $.post("/app", { person: person, code: $("#identitycode").val()}, function(res) {
-                        console.log("success")
+                        window.alert(res.message);
                     });
             }
             function showmap(){
