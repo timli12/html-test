@@ -2,22 +2,10 @@ const express = require("express");
 const Form = require("../models/form");
 const router = express.Router();
 router.use(express.json());
-router.get("/app", async (req, res) => {
-    res.json("Hello World")
-});
 router.post("/app", async (req, res) => {
     const form = new Form({
-        fullname: req.body.fullname,
-        code: req.body.code,
-        interest: req.body.interest,
-        phonenumber: req.body.phonenumber,
-        location: req.body.location,
-        date: req.body.date,
-        Timestart: req.body.Timestart,
-        Timefinish: req.body.Timefinish,
-        likes1: req.body.likes1,
-        likes2: req.body.likes2,
-        likes3: req.body.likes3
+        person: req.body.person,
+        code: req.body.code
     });
     try{
         const newForm = await form.save();

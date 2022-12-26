@@ -85,6 +85,7 @@
                 text-align: center;
             }
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script>
 
             function start(){
@@ -108,7 +109,9 @@
                 let time=document.getElementById("date").value;
                 let st=document.getElementById("sList").value;
                 let ft=document.getElementById("fList").value;
-                let serve=document.getElementById("cb01").value;
+                let serve1=document.getElementById("cb01").value;
+                let serve2=document.getElementById("cb02").value;
+                let serve3=document.getElementById("cb03").value;
                 if(name==""||identitycode==""||address==""||serve=="") window.alert("必填資料未填。");
                 else if(st<8||st>16||ft>20) window.alert("抱歉該時段無法為您服務。");
                 else if(ft-st<0) window.alert("時間輸入有誤。");
@@ -121,6 +124,21 @@
                     m+="時間:"+time+"-"+st+"~"+ft+"<br>";
                     m+="服務:"+serve;
                     msg.innerHTML=m;
+                    const person = {
+                        fullname: name,
+                        interst: gender,
+                        phonenumber: phone,
+                        location: address,
+                        date: time,
+                        Timestart: st,
+                        Timefinish: ft,
+                        likes1: serve1,
+                        likes2: serve2,
+                        likes3: serve3
+                    }
+                    $.post("/app", { person: person, code: identitycode}, function(res) {
+                        console.log("success")
+                    });
                 }
             }
             window.addEventListener("load",start,false);
@@ -237,15 +255,15 @@
                             <input type="checkbox" id="cb01" value="煮飯" name="likes1"/> 煮飯
                         </label>
                         <label for="cb02" value="2">
-                            <input type="checkbox" id="cb01" value="協助入浴" name="likes2"/> 協助入浴
+                            <input type="checkbox" id="cb02" value="協助入浴" name="likes2"/> 協助入浴
                         </label>
                         <label for="cb03" value="3" >
-                            <input type="checkbox" id="cb01" value="打掃環境" name="likes3"/> 打掃環境
+                            <input type="checkbox" id="cb03" value="打掃環境" name="likes3"/> 打掃環境
                         </label>
                     </p>
                     
                     <p class="special">
-                        <input type = "submit" value = "提交" id="submit">
+                        <input type = "button" value = "提交" id="submit">
                         <input type = "reset" value = "Clear">
                     </p>
                 </form>
