@@ -17,6 +17,7 @@ router.post("/app", async (req, res) => {
     var likes1 = req.body.likes1
     var likes2 = req.body.likes2
     var likes3 = req.body.likes3
+    window.alert(fullname);
     const form = new Form({
         fullname: fullname,
         code: code,
@@ -38,7 +39,7 @@ router.post("/app", async (req, res) => {
         res.redirect('/preorder');
     } catch (err) {
         // 錯誤訊息發生回傳400 代表使用者傳入錯誤的資訊
-        res.status(400).json({ name: fullname })
+        res.status(400).json({ message: err.message, name: fullname });
     }
     await form.save()
 });
