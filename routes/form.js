@@ -8,16 +8,16 @@ router.get("/app", async (req, res) => {
 router.post("/app", async (req, res) => {
     const form = new Form({
         fullname: req.body.fullname,
-        identity: req.body.code,
-        gender: req.body.interest,
-        phone: req.body.phonenumber,
+        code: req.body.code,
+        interest: req.body.interest,
+        phonenumber: req.body.phonenumber,
         location: req.body.location,
         date: req.body.date,
-        stime: req.body.Timestart,
-        etime: req.body.Timefinish,
-        cook: req.body.likes1,
-        bath: req.body.likes2,
-        clean: req.body.likes3
+        Timestart: req.body.Timestart,
+        Timefinish: req.body.Timefinish,
+        likes1: req.body.likes1,
+        likes2: req.body.likes2,
+        likes3: req.body.likes3
     });
     try{
         const newForm = await form.save();

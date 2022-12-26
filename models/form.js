@@ -4,15 +4,15 @@ const p = new mongoose.Schema({
         type: String,
         required: true
     },
-    identity: {
+    code: {
         type: String,
         required: true
     },
-    gender: {
+    interest: {
         type: String,
         required: true
     },
-    phone: {
+    phonenumber: {
         type: Number,
         required: true
     },
@@ -24,23 +24,23 @@ const p = new mongoose.Schema({
         type: String,
         required: true
     },
-    stime: {
+    Timestart: {
         type: Number,
         required: true
     },
-    etime: {
+    Timefinish: {
         type: Number,
         required: true
     },
-    cook: {
+    likes1: {
         type: Boolean,
         required: true
     },
-    bath: {
+    likes2: {
         type: Boolean,
         required: true
     },
-    clean: {
+    likes3: {
         type: Boolean,
         required: true
     }
