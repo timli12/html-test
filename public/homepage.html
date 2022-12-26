@@ -86,11 +86,13 @@
                 $("#search").click(function(){
                     sch($("#username").val());
                 });
-                $("#delete").click(del);
+                $("#delete").click(function(){
+                    del($(this).val());
+                });
             });
-            function del(){
+            function del(id){
                 window.alert("Click!");
-                $.post("/delete", { id: $(this).val()}, function(res) {
+                $.post("/delete", { id: id}, function(res) {
                     sch(res)
                 });
             }
