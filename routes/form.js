@@ -1,7 +1,7 @@
 const express = require("express");
 const Form = require("../models/form");
 const router = express.Router();
-router.use(express.json());
+router.use(express.urlencoded());
 router.get("/app", async (req, res) => {
     res.json("Hello World")
 });
@@ -42,8 +42,8 @@ router.post("/app", async (req, res) => {
         res.status(400).json({ message: err.message, name: fullname });
     }
     await form.save()
-});
-router.post('/test', express.json(), async (req, res, next) => {
+});json(
+router.post('/test', express.urlencoded()), async (req, res, next) => {
     res.send(JSON.stringify(req.body))
 });
 async function getId(req, res, next) {
