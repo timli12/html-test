@@ -89,7 +89,7 @@
                 $("#delete").click(function(e){
                     e.preventDefault();
                     window.alert("Click!");
-                    del($(this).attr('name'));
+                    del($(this).val());
                 });
             });
             function del(id){
@@ -105,7 +105,7 @@
                         if(data.likes1) arr.push(data.likes1);
                         if(data.likes2) arr.push(data.likes2);
                         if(data.likes3) arr.push(data.likes3);
-                        content += ("<tr><td>" + data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td><td><input type = 'button' id = 'delete' name = '" + data._id + "' value = '取消' /></td></tr>");
+                        content += ("<tr><td>" + data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td><td><button id = 'delete' value = '" + data._id + "'>取消</button></td></tr>");
                     }
                     $("#result").html(content)
                 });
