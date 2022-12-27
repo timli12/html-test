@@ -102,8 +102,9 @@
                     sch($("#username").val());
                 }, false);
             }
-            function del(id){
-                $.post("/delete", { id: id}, function(res) {
+            function del(iden){
+                console.log(iden, typeof(iden))
+                $.post("/delete", { id: iden}, function(res) {
                     sch(res)
                 });
             }
@@ -117,7 +118,7 @@
                         if(data.likes1) arr.push(data.likes1);
                         if(data.likes2) arr.push(data.likes2);
                         if(data.likes3) arr.push(data.likes3);
-                        content += ("<tr><td>" + data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td><td><button onclick = 'del(" + id + ")'>取消</button></td></tr>");
+                        content += ("<tr><td>" + data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td><td><button onclick = \"del(" + id + ")\">取消</button></td></tr>");
                     }
                     $("#result").html(content)
                 });
