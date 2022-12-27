@@ -96,17 +96,16 @@
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script>
-            $(document).ready(function() {
-                $("#search").click(function(){
-                   sch($("#username").val());
-                });
-                $("#delete").click(function(){
+            function start(){
+                let b = document.getElementById("search");
+                b.addEventListener("click", function(){
+                    sch($("#username").val());
+                }, false);
+                let b2 = document.getElementById("delete");
+                b2.addEventListener("click", function(){
                     window.alert("Click!");
                     del($(this).val());
-                });
-            });
-            function start(){
-                let b = document.get
+                }, false);
             }
             function del(id){
                 $.post("/delete", { id: id}, function(res) {
