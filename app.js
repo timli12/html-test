@@ -7,7 +7,7 @@ const port = config.app.port;
 var options = {
   dotfiles: 'ignore',
   etag: false,
-  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
+  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg','.pptx'],
   index: ['homepage.html'],
   maxAge: '1m',
   redirect: false
@@ -15,7 +15,7 @@ var options = {
 var options2 = {
   dotfiles: 'ignore',
   etag: false,
-  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
+  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg','.pptx'],
   index: ['preorder.html'],
   maxAge: '1m',
   redirect: false
@@ -23,7 +23,7 @@ var options2 = {
 var options3 = {
   dotfiles: 'ignore',
   etag: false,
-  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg'],
+  extensions: ['htm', 'html','css','js','ico','jpg','jpeg','png','svg','.pptx'],
   index: ['data.html'],
   maxAge: '1m',
   redirect: false
