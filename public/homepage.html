@@ -105,6 +105,9 @@
                     del($(this).val());
                 });
             });
+            function start(){
+                let b = document.get
+            }
             function del(id){
                 $.post("/delete", { id: id}, function(res) {
                     sch(res)
@@ -123,6 +126,7 @@
                     $("#result").html(content)
                 });
             }
+            window.addEventListener("load",start,false);
         </script>
     </head>
     <body>
