@@ -34,7 +34,7 @@ router.post("/app", async (req, res) => {
     try {
         // 使用.save()將資料存進資料庫
         await form.save();
-        res.write('預約成功');
+        res.write('success', 'utf-8');
         res.redirect('/preorder');
     } catch (err) {
         // 錯誤訊息發生回傳400 代表使用者傳入錯誤的資訊
