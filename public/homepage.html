@@ -103,7 +103,7 @@
                 }, false);
                 let b2 = document.getElementById("delete");
                 b2.addEventListener("click", function(){
-                    window.alert("Click!");
+                    console.log($(this).val());
                     del($(this).val());
                 }, false);
             }
