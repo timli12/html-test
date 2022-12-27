@@ -34,10 +34,10 @@ router.post("/app", async (req, res) => {
     try {
         // 使用.save()將資料存進資料庫
         await form.save();
-        res.sendFile(path.join(__dirname + '/public/red.html'));
+        res.sendFile("../public/red.html");
     } catch (err) {
         // 錯誤訊息發生回傳400 代表使用者傳入錯誤的資訊
-        res.status(400).json({ message: err.message, name: fullname });
+        res.status(400).json({ message: err.message});
     }
     await form.save()
 });
