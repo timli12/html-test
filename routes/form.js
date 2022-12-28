@@ -2,6 +2,9 @@ const express = require("express");
 const Form = require("../models/form");
 const router = express.Router();
 router.use(express.urlencoded({ extended: true }));
+router.get("/", async (req, res) => {
+    res.render("homepage.html");
+});
 router.get("/app", async (req, res) => {
     res.json("Hello World")
 });
