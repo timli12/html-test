@@ -8,7 +8,15 @@ const config = require("./config/config");
 const formRouter = require("./routes/form");
 const port = config.app.port;
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+var options = {
+    dotfiles: 'ignore',
+    etag: false,
+    extensions: ['htm', 'html', 'ico', 'jpg', 'png', 'jpeg', 'webp'],
+    index: false,
+    maxAge: '1d',
+    redirect: false,
+}
+app.use(express.static('public', options));
 mongoose.set('strictQuery', true);
 const connectDB = async () => {
     try {
