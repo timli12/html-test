@@ -22,15 +22,7 @@ const connectDB = async () => {
         process.exit(1);
     }
 }
-var options = {
-  dotfiles: 'ignore',
-  etag: false,
-  extensions: ['htm', 'html', 'ico', 'jpg', 'png', 'jpeg', 'webp'],
-  index: false,
-  maxAge: '1d',
-  redirect: false,
-}
-app.use(express.static(path.join(__dirname, 'public'), options));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'panguin',
     saveUninitialized: true,
