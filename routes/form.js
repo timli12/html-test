@@ -113,7 +113,7 @@ router.post("/delete", getId, async (req, res) => {
 // ------ signin ------
 router.post('/signin',
     passport.authenticate('local', {
-        failureRedirect: '/signin',
+        failureRedirect: '/',
     }),
     async (req, res) => {
         console.log(req.session)
@@ -121,11 +121,11 @@ router.post('/signin',
 });
 
 // ------ signup ------
-router.get('/signup', async (req, res) => {
+router.get('/register', async (req, res) => {
     res.sendFile('/var/task/public/register.html');
 });
 
-router.post('/signup', async (req, res) => {
+router.post('/register', async (req, res) => {
     // Parse Info
     var username = req.body.username
     var password = req.body.password
@@ -139,7 +139,7 @@ router.post('/signup', async (req, res) => {
     User.createUser(newUser, function(err, user){
         if(err) throw err;
     })
-    res.redirect('/signin')
+    res.redirect('/')
   });
 
 module.exports = router;
