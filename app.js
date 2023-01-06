@@ -1,7 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
-const cookieParser = require('cookie-parser');
 const passport = require('passport')
 const session = require('express-session');
 const LocalStrategy = require('passport-local')
@@ -30,7 +29,6 @@ app.use(session({
     resave: false
 }));
 //Routes go here
-app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/", formRouter);
