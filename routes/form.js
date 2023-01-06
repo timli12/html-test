@@ -67,7 +67,7 @@ async function getId(req, res, next) {
 async function getCode(req, res, next) {
     let form;
     try {
-        form = await SForm.find({ code: req.body.code});
+        form = await SForm.find({ username: req.body.username});
         if (form == undefined) {
             return res.status(404).json({ message: "Can't find form" })
         }
@@ -85,7 +85,7 @@ router.post("/search", async (req, res) => {
     passport.authenticate('local', {
         failureRedirect: '/preorder',
     })
-    getCode();
+    getCode(req, res);
     res.send(res.form)
 });
 
