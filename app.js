@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 const path = require('path')
 const passport = require('passport')
 const session = require('express-session');
