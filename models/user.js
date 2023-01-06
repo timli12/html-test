@@ -24,7 +24,7 @@ const u = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("user", u);
+var User = module.exports = mongoose.model("user", u);
 
 module.exports.createUser = async (newUser, callback) => {
     bcrypt.genSalt(10, function(err, salt) {
