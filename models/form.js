@@ -12,10 +12,6 @@ const p = new mongoose.Schema({
         type: String,
         required: true
     },
-    interest: {
-        type: String,
-        required: true
-    },
     phonenumber: {
         type: Number,
     },
@@ -28,10 +24,6 @@ const p = new mongoose.Schema({
         required: true
     },
     Timestart: {
-        type: Number,
-        required: true
-    },
-    Timefinish: {
         type: Number,
         required: true
     },

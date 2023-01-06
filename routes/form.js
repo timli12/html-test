@@ -21,12 +21,10 @@ router.post("/app", async (req, res) => {
     var username = req.session.passport.user.username
     var fullname = req.body.fullname
     var code = req.body.code
-    var interest = req.body.interest
     var phonenumber = req.body.phonenumber
     var location = req.body.location
     var date = req.body.date
     var Timestart = req.body.Timestart
-    var Timefinish = req.body.Timefinish
     var likes1 = req.body.likes1
     var likes2 = req.body.likes2
     var likes3 = req.body.likes3
@@ -35,12 +33,10 @@ router.post("/app", async (req, res) => {
         username: username,
         fullname: fullname,
         code: code,
-        interest: interest,
         phonenumber: phonenumber,
         location: location,
         date: date,
         Timestart: Timestart,
-        Timefinish: Timefinish,
         likes1: likes1,
         likes2: likes2,
         likes3: likes3
