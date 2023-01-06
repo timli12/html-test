@@ -11,10 +11,9 @@ const formRouter = require("./routes/form");
 const port = config.app.port;
 app.use(express.urlencoded({ extended: true }));
 mongoose.set('strictQuery', true);
-var conn;
 const connectDB = async () => {
     try {
-            conn = await mongoose.connect(config.db.url, {
+            const conn = await mongoose.connect(config.db.url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
