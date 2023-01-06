@@ -13,9 +13,9 @@
         function start(){
                 let c=document.getElementById("show").addEventListener("click",showmap,false);
                 let submit=document.getElementById("submit").addEventListener("click",send,false);
-                let b = document.getElementById("search");
+                let b = document.getElementById("searching");
                 b.addEventListener("click", function(){
-                    sch($("#username").val(), $("#password").val());
+                    sch($("#usernames").val(), $("#passwords").val());
                 }, false);
             }
             function showmap(){
@@ -142,9 +142,9 @@
                             <h1 class="result" id="s">搜尋功能</h1>
                             <div class="input-group">
                                 <span class="input-group-text">帳號&密碼</span>
-                                <input type="text" aria-label="First name" class="form-control" name="username" placeholder="username" id="username">
-                                <input type="password" aria-label="Last name" class="form-control" name="password" placeholder="password">
-                                <button class="btn btn-outline-secondary" type="button" id="search">搜尋資料</button>
+                                <input type="text" aria-label="First name" class="form-control" name="username" placeholder="username" id="usernames">
+                                <input type="password" aria-label="Last name" class="form-control" name="password" placeholder="password" id="passwords">
+                                <button class="btn btn-outline-secondary" type="button" id="searching">搜尋資料</button>
                               </div>
                             <table class="resultt">
                                 <thead>
