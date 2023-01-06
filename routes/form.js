@@ -79,13 +79,14 @@ async function getCode(req, res, next) {
     // 在router中執行middleware後需要使用next()才會繼續往下跑
     next();
 }
-
-router.post("/search", async (req, res) => {
-    console.log("AAA");
+async function passauth(req, res, next) {
     passport.authenticate('local', {
         failureRedirect: '/preorder',
     })
-    getCode(req, res);
+    next();
+}
+router.post("/search", [passauth, getCode], async (req, res) => {
+    console.log("AAA");
     res.send(res.form)
 });
 
