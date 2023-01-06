@@ -9,7 +9,7 @@ router.use(express.urlencoded({ extended: true }));
 
 // ------ basic render ------
 router.get("/", async (req, res) => {
-    res.sendFile(__dirname + 'homepage.html');
+    res.sendFile(__dirname + '/homepage.html');
 });
 router.get("/data", async (req, res) => {
     res.sendFile(__dirname + '/data.html');
