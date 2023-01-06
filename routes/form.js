@@ -143,11 +143,13 @@ router.post('/signup', async (req, res) => {
 
 // ------ logout ------
 router.get('/logout', async(req, res, next) => {
-    req.logOut()
-    req.session.destroy(() => {
-        res.clearCookie('connect.sid')
-        res.redirect('/users/login')
-    })
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        req.session.destroy(() => {
+            res.clearCookie('connect.sid')
+            res.redirect('/signin')
+        })
+    });
 })
 
 module.exports = router;
