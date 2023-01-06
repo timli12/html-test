@@ -22,6 +22,8 @@ const connectDB = async () => {
         process.exit(1);
     }
 }
+app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'panguin',
