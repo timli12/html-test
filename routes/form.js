@@ -154,11 +154,13 @@ module.exports = router;
 
 async function ensureAuthenticated(req, res, next){
     if(req.isAuthenticated()){
-      return next();
-    } else {
-      res.redirect('/signin')
+        console.log(req.username)
+        return next();
     }
-  }
+    else {
+        res.redirect('/signin')
+    }
+}
   
 passport.use(new LocalStrategy(
     async (username, password, done) => {
