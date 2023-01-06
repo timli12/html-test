@@ -9,16 +9,16 @@ router.use(express.urlencoded({ extended: true }));
 
 // ------ basic render ------
 router.get("/", async (req, res) => {
-    res.render('homepage.html');
+    res.sendFile('homepage.html');
 });
 router.get("/data", async (req, res) => {
-    res.render('data.html');
+    res.sendFile('data.html');
 });
 router.get("/preorder", async (req, res) => {
-    res.render('preorder.html');
+    res.sendFile('preorder.html');
 });
 router.get("/searching", async (req, res) => {
-    res.render('searching.html');
+    res.sendFile('searching.html');
 });
 
 router.post("/app", async (req, res) => {
@@ -105,7 +105,7 @@ router.post("/delete", getId, async (req, res) => {
 
 // ------ signin ------
 router.get('/signin', async (req, res) => {
-    res.render('signin.html');
+    res.sendFile('signin.html');
   });
 
 router.post('/signin',
@@ -120,7 +120,7 @@ router.post('/signin',
 
 // ------ signup ------
 router.get('/signup', async (req, res) => {
-    res.render('signup.html');
+    res.sendFile('signup.html');
 });
 
 router.post('/signup', async (req, res) => {
