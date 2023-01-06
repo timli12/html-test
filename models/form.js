@@ -16,7 +16,7 @@ const pp = new mongoose.Schema({
         required: true
     },
     Timestart: {
-        type: Number,
+        type: String,
         required: true
     },
     likes1: {
