@@ -1,13 +1,5 @@
 const mongoose = require('mongoose');
 const p = new mongoose.Schema({
-    fullname: {
-        type: String,
-        required: true
-    },
-    code: {
-        type: String,
-        required: true
-    },
     interest: {
         type: String,
         required: true
