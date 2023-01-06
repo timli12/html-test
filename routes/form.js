@@ -154,7 +154,7 @@ router.get('/logout', async(req, res, next) => {
 
 module.exports = router;
 
-async function ensureAuthenticated(req, res, next){
+function ensureAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         console.log(req.username)
         return next();
