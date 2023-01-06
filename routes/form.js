@@ -19,8 +19,6 @@ router.get("/preorder", async (req, res) => {
 
 router.post("/app", async (req, res) => {
     var username = req.session.passport.user.username
-    var fullname = req.body.fullname
-    var code = req.body.code
     var phonenumber = req.body.phonenumber
     var location = req.body.location
     var date = req.body.date
@@ -31,8 +29,6 @@ router.post("/app", async (req, res) => {
 
     const form = new Form({
         username: username,
-        fullname: fullname,
-        code: code,
         phonenumber: phonenumber,
         location: location,
         date: date,
