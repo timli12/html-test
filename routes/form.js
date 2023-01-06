@@ -13,10 +13,10 @@ router.get("/", async (req, res) => {
 router.get("/data", async (req, res) => {
     res.sendFile('/var/task/public/data.html');
 });
-router.get("/preorder", ensureAuthenticated, async (req, res) => {
+router.get("/preorder", ensureAuthenticated, async (req, res, next) => {
     res.sendFile('/var/task/public/preorder.html');
 });
-router.get("/searching", ensureAuthenticated, async (req, res) => {
+router.get("/searching", ensureAuthenticated, async (req, res, next) => {
     res.sendFile('/var/task/public/searching.html');
 });
 
@@ -142,7 +142,7 @@ router.post('/signup', async (req, res) => {
   });
 
 // ------ logout ------
-router.get('/logout', async(req, res) => {
+router.get('/logout', async(req, res, next) => {
     req.logOut()
     req.session.destroy(() => {
         res.clearCookie('connect.sid')
