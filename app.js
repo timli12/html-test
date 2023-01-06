@@ -30,7 +30,7 @@ var options = {
   maxAge: '1d',
   redirect: false,
 }
-app.use(express.static(path.join(__dirname, 'public'), option));
+app.use(express.static(path.join(__dirname, 'public'), options));
 app.use(session({
     secret: 'panguin',
     saveUninitialized: true,
