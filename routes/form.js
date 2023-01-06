@@ -81,6 +81,7 @@ async function getCode(req, res, next) {
 }
 
 router.post("/search", async (req, res) => {
+    console.log("AAA");
     passport.authenticate('local', {
         failureRedirect: '/preorder',
     })
