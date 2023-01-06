@@ -8,15 +8,6 @@ const config = require("./config/config");
 const formRouter = require("./routes/form");
 const port = config.app.port;
 app.use(express.urlencoded({ extended: true }));
-var options = {
-    dotfiles: 'ignore',
-    etag: false,
-    extensions: ['htm', 'html', 'ico', 'jpg', 'png', 'jpeg', 'webp'],
-    index: false,
-    maxAge: '1d',
-    redirect: false,
-}
-app.use(express.static('public', options));
 mongoose.set('strictQuery', true);
 const connectDB = async () => {
     try {
@@ -30,6 +21,15 @@ const connectDB = async () => {
         process.exit(1);
     }
 }
+var options = {
+  dotfiles: 'ignore',
+  etag: false,
+  extensions: ['htm', 'html', 'ico', 'jpg', 'png', 'jpeg', 'webp'],
+  index: false,
+  maxAge: '1d',
+  redirect: false,
+}
+app.use(express.static('public', options));
 app.use(session({
     secret: 'panguin',
     saveUninitialized: true,
