@@ -129,11 +129,13 @@ router.post('/register', async (req, res) => {
     // Parse Info
     var username = req.body.username
     var password = req.body.password
+    var fullname = req.body.fullname
     var code = req.body.code
     //Create User
     var newUser = new User({
         username: username,
         password: password,
+        fullname: fullname,
         code: code
     })
     User.createUser(newUser, function(err, user){
