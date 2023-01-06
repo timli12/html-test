@@ -18,7 +18,7 @@ router.get("/preorder", async (req, res) => {
 });
 
 router.post("/preorder", async (req, res) => {
-    var username = req.session.passport.user.username
+    var username = req.body.username
     var phonenumber = req.body.phonenumber
     var location = req.body.location
     var date = req.body.date
