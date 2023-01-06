@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 const path = require('path')
 const passport = require('passport')
 const session = require('express-session');
@@ -17,7 +17,7 @@ const connectDB = async () => {
             conn = await mongoose.connect(config.db.url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
-        }).then(m => m.connection.getClient());
+        })
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
         console.log(error);
@@ -29,13 +29,7 @@ app.use(session({
     secret: 'panguin',
     saveUninitialized: true,
     resave: false,
-    store: MongoStore.create({
-        clientPromise: conn,
-        dbName: "session",
-        stringify: false,
-        autoRemove: 'interval',
-        autoRemoveInterval: 1
-    })
+    store: MongoStore.create({ mongoUrl: config.db.url })
 }));
 //Routes go here
 app.use(passport.initialize());
