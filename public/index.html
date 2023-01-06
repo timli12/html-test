@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="top" style="height:70px;" >
+        <div class="container-fluid">
+            <div class="navbar-brand"><a href="/"><img src="home.png"  width="50px"/></a></div>
+            <!--手機板-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pic">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--電腦版-->
+            <div class="collapse navbar-collapse" id="pic">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"href="/preorder">預約及查詢</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"href="/data">相關法規</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">關於我們</a>
+                    </li>
+                </ul>
+                
+                <form class="d-flex nav-item">
+                    <a class="nav-link" href="/signup" id="sign">register||註冊</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main class="bd-main order-1" >
+        <div class="container-fluid con">
+            <div class="row">
+                <aside class="bd-sidebar col-3 position-sticky secondlist">
+                    <nav class="collapse d-lg-block sidebar collapse bg-white">
+                        <ul>
+                            <li>
+                                <a href="#ppt" >ppt連結</a>
+                            </li>
+                            <li>
+                                <a href="#howstart" >如何開始預約</a>
+                                <p><a href="#step1">step 1</a></p>
+                                <p><a href="#step2">step 2</a></p>
+                                <p><a href="#step3">step 3</a></p>
+                            </li>
+                            <li>
+                                <a href="#news" >最新消息</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div class="col-7" id="bc">
+                    <h1 id="ppt" style="text-align:center;"><a href="">ppt連結</a></h1>
+                    <h1 id="howstart" style="text-align:center;">如何開始預約</h1>
+                    <h2 id="step1">Step 1</h2>
+                    <p>註冊或登入您的帳戶</p>
+                    <h2 id="step2">Step 2</h2>
+                    <p>輸入您的訂單內容</p>
+                    <h2 id="step3">Step 3</h2>
+                    <p>送出及完成訂單</p>
+                    <h1 id="news" style="text-align:center;">最新消息</h1>
+                    <div class="row" style="height:500px">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <a href="https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/1e9bc8a6-99bc-41a5-b91f-96e6df4df192"><img src="NEWS.jpg" class="img-fluid img-thumbnail" ></a>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-light text-center text-white" style="background-color:darkgrey">
+        <div class="Author"><a href="mailto:01057102@email.ntou.edu.tw">Author</a></div>
+    </footer>
+  </body>
+</html>
+

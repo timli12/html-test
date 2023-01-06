@@ -8,20 +8,19 @@ router.use(express.urlencoded({ extended: true }));
 
 // ------ basic render ------
 router.get("/", async (req, res) => {
-    res.sendFile('/var/task/public/homepage.html');
+    res.sendFile('/var/task/public/index.html');
 });
 router.get("/data", async (req, res) => {
-    res.sendFile('/var/task/public/data.html');
+    res.sendFile('/var/task/public/newdata.html');
 });
-router.get("/preorder", ensureAuthenticated, async (req, res, next) => {
-    res.sendFile('/var/task/public/preorder.html');
-});
-router.get("/searching", ensureAuthenticated, async (req, res, next) => {
-    res.sendFile('/var/task/public/searching.html');
+router.get("/preorder", async (req, res) => {
+    res.sendFile('/var/task/public/newpreorder.html');
 });
 
 router.post("/app", async (req, res) => {
     var username = req.session.passport.user.username
+    var fullname = req.body.fullname
+    var code = req.body.code
     var interest = req.body.interest
     var phonenumber = req.body.phonenumber
     var location = req.body.location
@@ -34,6 +33,8 @@ router.post("/app", async (req, res) => {
 
     const form = new Form({
         username: username,
+        fullname: fullname,
+        code: code,
         interest: interest,
         phonenumber: phonenumber,
         location: location,
@@ -105,10 +106,6 @@ router.post("/delete", getId, async (req, res) => {
 });
 
 // ------ signin ------
-router.get('/signin', async (req, res) => {
-    res.sendFile('/var/task/public/signin.html');
-  });
-
 router.post('/signin',
     passport.authenticate('local', {
         failureRedirect: '/signin',
@@ -120,20 +117,18 @@ router.post('/signin',
 
 // ------ signup ------
 router.get('/signup', async (req, res) => {
-    res.sendFile('/var/task/public/signup.html');
+    res.sendFile('/var/task/public/register.html');
 });
 
 router.post('/signup', async (req, res) => {
     // Parse Info
     var username = req.body.username
     var password = req.body.password
-    var fullname = req.body.fullname
     var code = req.body.code
     //Create User
     var newUser = new User({
         username: username,
         password: password,
-        fullname: fullname,
         code: code
     })
     User.createUser(newUser, function(err, user){
@@ -141,17 +136,6 @@ router.post('/signup', async (req, res) => {
     })
     res.redirect('/signin')
   });
-
-// ------ logout ------
-router.get('/logout', async(req, res, next) => {
-    req.logout(function(err) {
-        if (err) { return next(err); }
-        req.session.destroy(() => {
-            res.clearCookie('connect.sid')
-            res.redirect('/signin')
-        })
-    });
-})
 
 module.exports = router;
 

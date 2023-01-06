@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="top" style="height:70px;" >
+        <div class="container-fluid">
+            <div class="navbar-brand"><a href="/"><img src="home.png"  width="50px"/></a></div>
+            <!--手機板-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pic">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--電腦版-->
+            <div class="collapse navbar-collapse" id="pic">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"href="/preorder">預約及查詢</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"href="/data">相關法規</a>
+                    </li>
+                </ul>
+                
+                <form class="d-flex nav-item">
+                    <a class="nav-link" href="/register" id="sign">register||註冊</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main class="bd-main order-1" >
+        <div class="container-fluid con">
+            <div class="row">
+                <aside class="bd-sidebar col-3 position-sticky secondlist">
+                    <nav class="collapse d-lg-block sidebar collapse bg-white">
+                        <ul>
+                            <li>
+                                <a href="#inf1" >住宿式長照相關資訊</a>
+                            </li>
+                            <li>
+                                <a href="#inf2" >失智照護</a>
+                            </li>
+                            <li>
+                                <a href="#inf3" >出院銜接長照服務</a>
+                            </li>
+                            <li>
+                                <a href="#inf4" >政策資料</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div class="col-7" id="bc">
+                    <div id="inf1" class="inf" style="text-align:center;">一.住宿式長照相關資訊</div>
+                    <p class="inf1data">1.各縣市長照機構資料:<a href="https://www.mohw.gov.tw/dl-80165-b7755ea9-d17b-425c-8ba9-966b2c1d96db.html">各縣市服務窗口</a></p>
+                    <p class="inf1data">2.補助方案申請須知:<a href="https://www.mohw.gov.tw/dl-80166-1e3ff7df-d493-4068-8438-552461c7f1f3.html">補助方案申請作業須知</a></p>
+        
+                    <div id="inf2" class="inf" style="text-align:center;">二.失智照護</div>
+                    <p class="inf1data">1.失智簡易辨識問卷:<a href="https://www.mohw.gov.tw/dl-77748-e4d64369-c4a6-460b-960f-8f1264e6bc9e.html">問卷下載</a></p>
+                    <p class="inf1data">2.各縣市共照中心:<a href="https://www.mohw.gov.tw/dl-77912-502c2b15-0db6-4386-a327-3d3e84b639c9.html">各縣市共照中心清單</a></p>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <img src="長照表格.png" class="img-fluid img-thumbnail" >
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+        
+                    <div id="inf3" class="inf" style="text-align:center;">三.出院銜接長照服務</div>
+                    <p class="inf1data">1.出院銜接長照申請須知:<a href="https://www.mohw.gov.tw/dl-77960-2211ca69-dce9-4710-bbf1-f31a635ed36d.html">申請須知</a></p>
+                    <p class="inf1data">2.參與醫院名單:<a href="https://www.mohw.gov.tw/dl-77958-41496d6e-79d1-4508-9e3d-480a0b709152.html">醫院名單</a></p><br>
+
+                    <div id="inf4" class="inf" style="text-align:center;">四.政策資料</div>
+                    <p class="inf1data">1.長照2.0:<a href="https://www.mohw.gov.tw/dl-78115-5511ccc0-cae0-4d16-b729-6d0e16228fb5.html">核定表本</a></p>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <img src="2.0.webp" class="img-fluid img-thumbnail" >
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                    <p class="inf1data">2.長期照顧服務法:<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0070040">全國法規資料庫：長期照顧服務</a></p><br>
+
+                    <p id="dataform" style="text-align:center;">以上資料來源:<a href="https://1966.gov.tw/LTC/mp-207.html">衛服部長照資訊</a></p>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-light text-center text-white" style="background-color:darkgrey">
+        <div class="Author"><a href="mailto:01057102@email.ntou.edu.tw">Author</a></div>
+    </footer>
+  </body>
+</html>

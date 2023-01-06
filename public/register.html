@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="top" style="height:70px;" >
+        <div class="container-fluid">
+            <div class="navbar-brand"><a href="/"><img src="home.png"  width="50px"/></a></div>
+            <!--手機板-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pic">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--電腦版-->
+            <div class="collapse navbar-collapse" id="pic">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"href="/preorder">預約及查詢</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"href="/data">相關法規</a>
+                    </li>
+                </ul>
+                
+                <form class="d-flex nav-item">
+                    <a class="nav-link" href="/register" id="sign">register||註冊</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main class="bd-main order-1" >
+        <div class="container-fluid con">
+            <div class="row">
+                <aside class="bd-sidebar col-3 position-sticky secondlist">
+                </aside>
+                <div class="col-7" id="bc">
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <br>
+                            <h1 style="text-align:center;">註冊</h1>
+                            <from  id="preorder">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="add1">帳號</span>
+                                    <input type="text" class="form-control" placeholder="username" aria-label="phonenumber" aria-describedby="add1" name="username">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="add1">密碼</span>
+                                    <input type="text" class="form-control" placeholder="password" aria-label="phonenumber" aria-describedby="add1" name="password">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="add1">身分證字號</span>
+                                    <input type="text" class="form-control" placeholder="code" aria-label="phonenumber" aria-describedby="add1" name="code">
+                                </div>
+                                <p class="special" style="text-align:center;">
+                                    <input type = "button" value = "提交" id="submit">
+                                    <input type = "reset" value = "Clear">
+                                </p>
+                            </from>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-light text-center text-white" style="background-color:darkgrey">
+        <div class="Author"><a href="mailto:01057102@email.ntou.edu.tw">Author</a></div>
+    </footer>
+  </body>
+</html>
