@@ -10,6 +10,10 @@ const u = new mongoose.Schema({
         type: String,
         required: true
     },
+    fullname: {
+        type: String,
+        required: true
+    },
     code: {
         type: String,
         required: true
