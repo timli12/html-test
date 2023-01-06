@@ -114,7 +114,7 @@ router.post('/signin',
         failureRedirect: '/signin',
     }),
     async (req, res) => {
-        console.log("Success")
+        console.log(req.session)
         res.redirect('/')
 });
 
