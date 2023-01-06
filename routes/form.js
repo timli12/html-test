@@ -1,5 +1,6 @@
 const express = require("express");
 const Form = require("../models/form");
+const path = require('path')
 const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user');
@@ -8,16 +9,16 @@ router.use(express.urlencoded({ extended: true }));
 
 // ------ basic render ------
 router.get("/", async (req, res) => {
-    res.render("homepage.html");
+    res.render('homepage.html');
 });
 router.get("/data", async (req, res) => {
-    res.render("data.html");
+    res.render('data.html');
 });
 router.get("/preorder", async (req, res) => {
-    res.render("preorder.html");
+    res.render('preorder.html');
 });
 router.get("/searching", async (req, res) => {
-    res.render("searching.html");
+    res.render('searching.html');
 });
 
 router.post("/app", async (req, res) => {

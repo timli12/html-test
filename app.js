@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const path = require('path')
 const passport = require('passport')
 const session = require('express-session');
 const LocalStrategy = require('passport-local')
@@ -29,7 +30,7 @@ var options = {
   maxAge: '1d',
   redirect: false,
 }
-app.use(express.static('public', options));
+app.use(express.static(path.join(__dirname, 'public'), option));
 app.use(session({
     secret: 'panguin',
     saveUninitialized: true,
