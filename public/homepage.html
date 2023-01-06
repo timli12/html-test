@@ -94,35 +94,6 @@
             }
             
         </style>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script>
-            function start(){
-                let b = document.getElementById("search");
-                b.addEventListener("click", function(){
-                    sch($("#username").val());
-                }, false);
-            }
-            function del(iden){
-                $.post("/delete", { id: iden}, function(res) {
-                    sch(res)
-                });
-            }
-            function sch(co){
-                $.post("/search", { code: co}, function(res) {
-                    let content = "";
-                    for(let data of res){
-                        var arr = [];
-                        var i = data._id;
-                        if(data.likes1) arr.push(data.likes1);
-                        if(data.likes2) arr.push(data.likes2);
-                        if(data.likes3) arr.push(data.likes3);
-                        content += ("<tr><td>" + data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td><td><button onclick = 'del(\"" + i + "\")'>取消</button></td></tr>");
-                    }
-                    $("#result").html(content)
-                });
-            }
-            window.addEventListener("load",start,false);
-        </script>
     </head>
     <body>
         <img src="title.jpg" id="titleimg">
