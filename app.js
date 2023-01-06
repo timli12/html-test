@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'panguin',
     saveUninitialized: true,
-    resave: true
+    resave: false
 }));
 //Routes go here
 app.use(cookieParser());

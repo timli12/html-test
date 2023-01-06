@@ -1,6 +1,5 @@
 const express = require("express");
 const Form = require("../models/form");
-const path = require('path')
 const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user');
@@ -34,6 +33,7 @@ router.post("/app", async (req, res) => {
     var likes3 = req.body.likes3
 
     const form = new Form({
+        username: username,
         interest: interest,
         phonenumber: phonenumber,
         location: location,
@@ -111,9 +111,7 @@ router.get('/signin', async (req, res) => {
 
 router.post('/signin',
     passport.authenticate('local', {
-        successRedirect: '/',
         failureRedirect: '/signin',
-        failureFlash: false
     }),
     async (req, res) => {
         res.redirect('/')
