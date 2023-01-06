@@ -17,7 +17,7 @@ const connectDB = async () => {
             conn = await mongoose.connect(config.db.url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
-        });
+        }).then(m => m.connection.getClient());
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
         console.log(error);
