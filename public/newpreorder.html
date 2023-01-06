@@ -13,12 +13,36 @@
         function start(){
                 let c=document.getElementById("show").addEventListener("click",showmap,false);
                 let submit=document.getElementById("submit").addEventListener("click",send,false);
+                let b = document.getElementById("search");
+                b.addEventListener("click", function(){
+                    sch($("#username").val(), $("#password").val());
+                }, false);
             }
             function showmap(){
                 let address2=document.getElementById("address").value;
                 let b="https://www.google.com/maps/place/";
                 b += address2;
                 window.open(b);
+            }
+            function del(iden){
+                $.post("/delete", { id: iden}, function(res) {
+                    let sss = res.split(" ");
+                    sch(sss[0], sss[1])
+                });
+            }
+            function sch(a, b){
+                $.post("/search", { username: a, password: b}, function(res) {
+                    let content = "";
+                    for(let data of res){
+                        var arr = [];
+                        var i = data._id;
+                        if(data.likes1) arr.push(data.likes1);
+                        if(data.likes2) arr.push(data.likes2);
+                        if(data.likes3) arr.push(data.likes3);
+                        content += ("<tr><td>" + data.fullname + "</td><td>" + data.date + "</td><td>" + data.Timestart + "</td><td>" + data.location + "</td><td>" + arr.join(",") + "</td><td><button onclick = 'del(\"" + i + "\")'>取消</button></td></tr>");
+                    }
+                    $("#result").html(content)
+                });
             }
             window.addEventListener("load",start,false);
     </script>
@@ -118,8 +142,8 @@
                             <h1 class="result" id="s">搜尋功能</h1>
                             <div class="input-group">
                                 <span class="input-group-text">帳號&密碼</span>
-                                <input type="text" aria-label="First name" class="form-control" name="username" placeholder="username">
-                                <input type="text" aria-label="Last name" class="form-control" name="password" placeholder="password">
+                                <input type="text" aria-label="First name" class="form-control" name="username" placeholder="username" id="username">
+                                <input type="password" aria-label="Last name" class="form-control" name="password" placeholder="password">
                                 <button class="btn btn-outline-secondary" type="button" id="search">搜尋資料</button>
                               </div>
                             <table class="resultt">

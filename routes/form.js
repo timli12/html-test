@@ -1,5 +1,5 @@
 const express = require("express");
-const Form = require("../models/form");
+const SForm = require("../models/form");
 const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user');
@@ -27,7 +27,7 @@ router.post("/app", async (req, res) => {
     var likes2 = req.body.likes2
     var likes3 = req.body.likes3
 
-    const form = new Form({
+    const form = new SForm({
         username: username,
         phonenumber: phonenumber,
         location: location,
@@ -51,7 +51,7 @@ router.post("/app", async (req, res) => {
 async function getId(req, res, next) {
     let form;
     try {
-        form = await Form.findById(req.body.id)
+        form = await SForm.findById(req.body.id)
         if (form == undefined) {
             return res.status(404).json({ message: "Can't find form" })
         }
@@ -67,7 +67,7 @@ async function getId(req, res, next) {
 async function getCode(req, res, next) {
     let form;
     try {
-        form = await Form.find({ code: req.body.code});
+        form = await SForm.find({ code: req.body.code});
         if (form == undefined) {
             return res.status(404).json({ message: "Can't find form" })
         }
@@ -80,17 +80,30 @@ async function getCode(req, res, next) {
     next();
 }
 
-router.post("/search", getCode, async (req, res) => {
+router.post("/search", async (req, res) => {
+    passport.authenticate('local', {
+        failureRedirect: '/preorder',
+    })
+    getCode();
     res.send(res.form)
 });
 
 router.post("/delete", getId, async (req, res) => {
     try {
-        var c = res.form.code;
+        var c = res.form.username, d;
+        try {
+            d = await User.find({ username: c});
+            if (d == undefined) {
+                return res.status(404).json({ message: "Can't find form" })
+            }
+        } catch (err) {
+            return res.status(500).json({ message: err.message })
+        }
+        var e = c + " " + d;
         // 刪除
         await res.form.remove();
         // 回傳訊息
-        res.send(c)
+        res.send(e)
     } catch (err) {
         // 資料庫操作錯誤將回傳500及錯誤訊息
         res.status(500).json({ message: "remove form faild" })
@@ -131,17 +144,6 @@ router.post('/signup', async (req, res) => {
 
 module.exports = router;
 
-function ensureAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
-        console.log(req.username)
-        return next();
-    }
-    else {
-        console.log("B")
-        res.redirect('/signin')
-    }
-}
-  
 passport.use(new LocalStrategy(
     async (username, password, done) => {
         User.findOne({ username: username }, function(err, user) {
