@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const p = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
     interest: {
         type: String,
         required: true

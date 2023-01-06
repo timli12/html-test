@@ -14,14 +14,15 @@ router.get("/", async (req, res) => {
 router.get("/data", async (req, res) => {
     res.sendFile('/var/task/public/data.html');
 });
-router.get("/preorder", async (req, res) => {
+router.get("/preorder", ensureAuthenticated, async (req, res) => {
     res.sendFile('/var/task/public/preorder.html');
 });
-router.get("/searching", async (req, res) => {
+router.get("/searching", ensureAuthenticated, async (req, res) => {
     res.sendFile('/var/task/public/searching.html');
 });
 
 router.post("/app", async (req, res) => {
+    var username = req.session.passport.user.username
     var interest = req.body.interest
     var phonenumber = req.body.phonenumber
     var location = req.body.location
@@ -86,7 +87,7 @@ async function getCode(req, res, next) {
     next();
 }
 
-router.post("/search", [ensureAuthenticated, getCode], async (req, res) => {
+router.post("/search", getCode, async (req, res) => {
     res.send(res.form)
 });
 
