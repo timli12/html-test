@@ -9,16 +9,16 @@ router.use(express.urlencoded({ extended: true }));
 
 // ------ basic render ------
 router.get("/", async (req, res) => {
-    res.sendFile(__dirname + '/homepage.html');
+    res.sendFile('/var/task/public/homepage.html');
 });
 router.get("/data", async (req, res) => {
-    res.sendFile(__dirname + '/data.html');
+    res.sendFile('/var/task/public/data.html');
 });
 router.get("/preorder", async (req, res) => {
-    res.sendFile(__dirname + '/preorder.html');
+    res.sendFile('/var/task/public/preorder.html');
 });
 router.get("/searching", async (req, res) => {
-    res.sendFile(__dirname + '/searching.html');
+    res.sendFile('/var/task/public/searching.html');
 });
 
 router.post("/app", async (req, res) => {
@@ -105,7 +105,7 @@ router.post("/delete", getId, async (req, res) => {
 
 // ------ signin ------
 router.get('/signin', async (req, res) => {
-    res.sendFile(__dirname + '/signin.html');
+    res.sendFile('/var/task/public/signin.html');
   });
 
 router.post('/signin',
@@ -120,7 +120,7 @@ router.post('/signin',
 
 // ------ signup ------
 router.get('/signup', async (req, res) => {
-    res.sendFile(__dirname + '/signup.html');
+    res.sendFile('/var/task/public/signup.html');
 });
 
 router.post('/signup', async (req, res) => {
