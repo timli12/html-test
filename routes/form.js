@@ -12,13 +12,13 @@ router.get("/", async (req, res) => {
     res.sendFile(__dirname + 'homepage.html');
 });
 router.get("/data", async (req, res) => {
-    res.sendFile(__dirname + 'data.html');
+    res.sendFile(__dirname + '/data.html');
 });
 router.get("/preorder", async (req, res) => {
-    res.sendFile(__dirname + 'preorder.html');
+    res.sendFile(__dirname + '/preorder.html');
 });
 router.get("/searching", async (req, res) => {
-    res.sendFile(__dirname + 'searching.html');
+    res.sendFile(__dirname + '/searching.html');
 });
 
 router.post("/app", async (req, res) => {
@@ -105,7 +105,7 @@ router.post("/delete", getId, async (req, res) => {
 
 // ------ signin ------
 router.get('/signin', async (req, res) => {
-    res.sendFile(__dirname + 'signin.html');
+    res.sendFile(__dirname + '/signin.html');
   });
 
 router.post('/signin',
@@ -120,7 +120,7 @@ router.post('/signin',
 
 // ------ signup ------
 router.get('/signup', async (req, res) => {
-    res.sendFile(__dirname + 'signup.html');
+    res.sendFile(__dirname + '/signup.html');
 });
 
 router.post('/signup', async (req, res) => {
