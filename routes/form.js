@@ -114,6 +114,7 @@ router.post('/signin',
         failureRedirect: '/signin',
     }),
     async (req, res) => {
+        console.log("Success")
         res.redirect('/')
 });
 
@@ -160,6 +161,7 @@ function ensureAuthenticated(req, res, next){
         return next();
     }
     else {
+        console.log("B")
         res.redirect('/signin')
     }
 }
