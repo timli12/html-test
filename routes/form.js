@@ -85,7 +85,7 @@ async function getCode(req, res, next) {
     next();
 }
 
-router.post("/search", getCode, async (req, res) => {
+router.post("/search", [ensureAuthenticated, getCode], async (req, res) => {
     res.send(res.form)
 });
 
