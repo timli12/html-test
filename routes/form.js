@@ -86,7 +86,6 @@ async function passauth(req, res, next) {
     next();
 }
 router.post("/search", [passauth, getCode], async (req, res) => {
-    console.log("AAA");
     res.send(res.form)
 });
 
